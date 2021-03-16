@@ -128,7 +128,7 @@
 							</span>
 						</div>
 						<div>
-							<button type="submit" id="login-submit-btn"
+							<button type="button" onclick="login()" id="login-submit-btn"
 								class="layui-btn  btn-login" style="width: 150px">&nbsp;&nbsp;登
 								录&nbsp;&nbsp;</button>
 							<button type="button" title="刷脸登录" data-search-open=""
@@ -148,6 +148,26 @@
 		</div>
 	</div>
 
-
+	<script type="text/javascript">
+		function login() {
+			// 验证登陆名的输入框是否为空
+			// 如果为空给出错误提示
+			// 验证密码的输入框是否为空
+			// 如果为空给出错误提示
+			let tipElement = $("#tishi");
+			
+			if ($("#loginname").val() === "") {
+				tipElement.html("请输入登录名");
+				return ;
+			}
+			
+			if ($("#password").val() === "") {
+				tipElement.html("请输入密码");
+				return ;
+			}
+			
+			$("#loginForm").submit();
+		}
+	</script>
 </body>
 </html>
