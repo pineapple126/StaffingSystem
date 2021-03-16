@@ -1,4 +1,4 @@
-<%@ tagliburi="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -90,7 +90,7 @@
 				</div>
 
 				<!--<form  action="login.d" method="post" onsubmit="return validateLogin()"> -->
-				<form action="LoginService" method="post" id="loginForm">
+				<form action="LoginServlet" method="post" id="loginForm">
 					<div class="content">
 						<div class="navbar-header">
 							<div>
@@ -140,6 +140,7 @@
 
 						<div class="formoperate" id="tishi"
 							style="text-align: center; color: red; padding-top: 15px">
+							${errorMsg}
 						</div>
 					</div>
 				</form>
