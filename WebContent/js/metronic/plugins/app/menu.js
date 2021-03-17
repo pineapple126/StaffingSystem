@@ -11,8 +11,8 @@ function loadMenu(){
 
 
 	var json='[{"id": "1","name": "CSI员工之家","icon": null,"url": "","parentId": "",'
-	+'"childs": [{"id": "11","name": "用户管理","icon": "/xingxing.png","url": "user/user.html","parentId": "1",'
-	+'"childs": [{"id": "111","name": "用户查询","icon": "","url": "user/user.html","parentId": "11",'
+	+'"childs": [{"id": "11","name": "用户管理","icon": "/xingxing.png","url": "user/UserListServlet","parentId": "1",'
+	+'"childs": [{"id": "111","name": "用户查询","icon": "","url": "user/UserListServlet","parentId": "11",'
 	+'"childs": []},{"id": "112","name": "添加用户","icon": "","url": "user/showAddUser.html","parentId": "11",'
 	+'"childs": []}]},{"id": "12","name": "部门管理","icon": "/xingxing.png","url": "dept/dept.html","parentId": "1",'
 	+'"childs": [{"id": "121","name": "部门查询","icon": "","url": "dept/dept.html","parentId": "12",'

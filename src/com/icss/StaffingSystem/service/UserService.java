@@ -1,5 +1,8 @@
 package com.icss.StaffingSystem.service;
 
+import java.sql.SQLException;
+import java.util.*;
+
 import com.icss.StaffingSystem.dao.UserDao;
 import com.icss.StaffingSystem.entity.User;
 
@@ -52,6 +55,21 @@ public class UserService {
 			result = 3;
 		}
 		return result;
+	}
+	
+	/**
+	 * 实现获取得到的所有用户列表的业务逻辑
+	 * @return
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public List<User> findAllUserList() throws ClassNotFoundException, SQLException {
+		
+		UserDao userDao = new UserDao();
+		
+		List<User> userList = userDao.selectAllUserList();
+		
+		return userList;
 	}
 	
 }
