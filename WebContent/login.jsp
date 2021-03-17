@@ -4,74 +4,74 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CSI员工之家</title>
-<meta
-	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
-	name='viewport'>
-<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-<meta content="" name="description" />
-<meta content="" name="author" />
-
-<link rel="stylesheet"
-	href="js/metronic/plugins/bootstrap/css/bootstrap.css" />
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="login/css/font-awesome.css" />
-<link rel="stylesheet"
-	href="js/metronic/plugins/simple-line-icons/css/simple-line-icons.css" />
-<link rel="stylesheet" href="login/css/animate.min.css" />
-<!-- Ionicons -->
-<link href="login/css/ionicons.css" rel="stylesheet" type="text/css" />
-<!-- Skins. Choose a skin from the css/skins
-	     folder instead of downloading all of them to reduce the load. -->
-<link href="login/css/_all-skins.css" rel="stylesheet" type="text/css" />
-<!-- Castle 1.0 -->
-<link href="login/css/castle.css" rel="stylesheet" type="text/css" />
-<!-- Theme style -->
-<link href="login/css/castle-main.css" rel="stylesheet" type="text/css" />
-<link href="js/metronic/plugins/layui/css/layui.css" rel="stylesheet"
-	type="text/css" />
-<link href="js/metronic/plugins/scrollbar/perfect-scrollbar.css"
-	rel="stylesheet" type="text/css" />
-<link href="login/css/fontsize.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="login/css/theme.css" />
-<link rel="stylesheet" href="login/css/cover.css" />
-<link rel="stylesheet" href="login/css/step.css" />
-<link href="login/css/login.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="css/mask.css" />
-
-<script language="JavaScript">
-	var context = "/hrm", __contextPath = "/hrm", __extendOptions = "main/options", __jsPath = "/hrm/gdsp/js", __scriptPath = "/hrm/gdsp/script";
-</script>
-
-
-<script src="js/jquery-2.1.4.js"></script>
-<script src="js/utils-base.js"></script>
-
-<script src="js/metronic/plugins/layui/layui.js"></script>
-<script src="js/metronic/plugins/layui/layui-config.js"></script>
-<script src="js/util.js"></script>
-<script src="js/autoheight.js"></script>
-<script src="js/mask.js"></script>
-
-
-<script type="text/javascript"
-	src="js/login/lufylegend-1.10.1.simple.min.js"></script>
-<script type="text/javascript"
-	src="js/login/lufylegend.LoadingSample4-0.1.0.min.js"></script>
-<script type="text/javascript" src="js/login/TweenLite.min.js"></script>
-<script type="text/javascript" src="js/login/login.js"></script>
-<script type="text/javascript"
-	src="js/metronic/plugins/jQuery-Storage-API/jquery.storageapi.js"></script>
-<script type="text/javascript" src="login/js/login.js"></script>
-<script type="text/javascript" src="js/alert.js"></script>
-
-
-<script src="js/metronic/plugins/layui/layui.js"></script>
-<script src="js/metronic/plugins/layui/layui-config.js"></script>
-<script
-	src="js/metronic/plugins/jQuery-Storage-API/jquery.storageapi.js"></script>
-<script src="js/metronic/plugins/app/app.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>CSI员工之家</title>
+	<meta
+		content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+		name='viewport'>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<link rel="stylesheet"
+		href="js/metronic/plugins/bootstrap/css/bootstrap.css" />
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="login/css/font-awesome.css" />
+	<link rel="stylesheet"
+		href="js/metronic/plugins/simple-line-icons/css/simple-line-icons.css" />
+	<link rel="stylesheet" href="login/css/animate.min.css" />
+	<!-- Ionicons -->
+	<link href="login/css/ionicons.css" rel="stylesheet" type="text/css" />
+	<!-- Skins. Choose a skin from the css/skins
+		     folder instead of downloading all of them to reduce the load. -->
+	<link href="login/css/_all-skins.css" rel="stylesheet" type="text/css" />
+	<!-- Castle 1.0 -->
+	<link href="login/css/castle.css" rel="stylesheet" type="text/css" />
+	<!-- Theme style -->
+	<link href="login/css/castle-main.css" rel="stylesheet" type="text/css" />
+	<link href="js/metronic/plugins/layui/css/layui.css" rel="stylesheet"
+		type="text/css" />
+	<link href="js/metronic/plugins/scrollbar/perfect-scrollbar.css"
+		rel="stylesheet" type="text/css" />
+	<link href="login/css/fontsize.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="login/css/theme.css" />
+	<link rel="stylesheet" href="login/css/cover.css" />
+	<link rel="stylesheet" href="login/css/step.css" />
+	<link href="login/css/login.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/mask.css" />
+	
+	<script language="JavaScript">
+		var context = "/hrm", __contextPath = "/hrm", __extendOptions = "main/options", __jsPath = "/hrm/gdsp/js", __scriptPath = "/hrm/gdsp/script";
+	</script>
+	
+	
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/utils-base.js"></script>
+	
+	<script src="js/metronic/plugins/layui/layui.js"></script>
+	<script src="js/metronic/plugins/layui/layui-config.js"></script>
+	<script src="js/util.js"></script>
+	<script src="js/autoheight.js"></script>
+	<script src="js/mask.js"></script>
+	
+	
+	<script type="text/javascript"
+		src="js/login/lufylegend-1.10.1.simple.min.js"></script>
+	<script type="text/javascript"
+		src="js/login/lufylegend.LoadingSample4-0.1.0.min.js"></script>
+	<script type="text/javascript" src="js/login/TweenLite.min.js"></script>
+	<script type="text/javascript" src="js/login/login.js"></script>
+	<script type="text/javascript"
+		src="js/metronic/plugins/jQuery-Storage-API/jquery.storageapi.js"></script>
+	<script type="text/javascript" src="login/js/login.js"></script>
+	<script type="text/javascript" src="js/alert.js"></script>
+	
+	
+	<script src="js/metronic/plugins/layui/layui.js"></script>
+	<script src="js/metronic/plugins/layui/layui-config.js"></script>
+	<script
+		src="js/metronic/plugins/jQuery-Storage-API/jquery.storageapi.js"></script>
+	<script src="js/metronic/plugins/app/app.js"></script>
 </head>
 
 
