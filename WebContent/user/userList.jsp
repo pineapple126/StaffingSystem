@@ -115,7 +115,7 @@
 						  	<td align="center">操作</td>
 						</tr>
 						
-						<c:forEach items="${userList}" var="user">
+						<c:forEach items="${pageResult.list}" var="user">
 							<tr id="data_0" align="center" class="main_trbg" style="background-color: rgb(255, 255, 255);">
 								<td><input type="checkbox" id="box_0" value="1"></td>
 					 			<td>${user.loginname}</td>
@@ -147,11 +147,25 @@
 	  	 		<table width="100%" align="center" style="font-size:13px;" class="digg">
 	  	 			<tbody>
 	  	 				<tr>
-	  	 					<td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none"><span class="disabled">上一页</span><span class="current">1</span><span class="disabled">下一页</span>&nbsp;跳转到&nbsp;&nbsp;<input style="text-align: center;BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 2px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none" type="text" size="2" id="pager_jump_page_size">&nbsp;<input type="button" style="text-align: center;BORDER-RIGHT: #dedfde 1px solid; PADDING-RIGHT: 6px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dedfde 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; BORDER-LEFT: #dedfde 1px solid; COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #dedfde 1px solid; TEXT-DECORATION: none" value="确定" id="pager_jump_btn"></td></tr><tr align="center"><td style="font-size:13px;"></td></tr><tr><td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none">总共<font color="red">2</font>条记录，当前显示1-2条记录。</td>
+	  	 					<td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none">
+	  	 						<span class="disabled">上一页</span>
+	  	 						<span class="current">${pageResult.currentPage}</span>
+	  	 						<span class="disabled">下一页</span>
+	  	 						&nbsp;跳转到&nbsp;&nbsp;<input name="currentPage" style="text-align: center;BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 2px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none" type="text" size="2" id="pager_jump_page_size">
+	  	 						&nbsp;<input type="button" style="text-align: center;BORDER-RIGHT: #dedfde 1px solid; PADDING-RIGHT: 6px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dedfde 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; BORDER-LEFT: #dedfde 1px solid; COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #dedfde 1px solid; TEXT-DECORATION: none" value="确定" id="pager_jump_btn">
+	  	 					</td>
+	  	 				</tr>
+	  	 				<tr align="center">
+	  	 					<td style="font-size:13px;"></td>
+	  	 				</tr>
+	  	 				<tr>
+	  	 					<td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none">
+	  	 						总共<font color="red"> ${pageResult.totalCount} </font>条记录，共<font color="red"> ${pageResult.totalPage} </font>页
+	  	 					</td>
   	 					</tr>
 	 				</tbody>
 	 			</table>
-	  		</td>
+	  		</td> 
   		</tr>
 	</table>
 	<div style="height:10px;"></div>

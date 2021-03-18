@@ -5,6 +5,7 @@ import java.util.*;
 
 import com.icss.StaffingSystem.dao.UserDao;
 import com.icss.StaffingSystem.entity.User;
+import com.icss.StaffingSystem.util.PageResult;
 
 /**
  * 用户相关的业务逻辑
@@ -87,6 +88,34 @@ public class UserService {
 		List<User> userList = userDao.selectUserListByCondition(username, status);
 		
 		return userList;
+	}
+	
+	/**
+	 * 实现获取得到满足过滤条件的分页结果（分页的列表，当前的页码、共多少条、共多少页）的业务逻辑
+	 * @param username 过滤条件一：用户名
+	 * @param status 过滤条件二：用户状态
+	 * @param currentPage 分页的已知条件一：展现的当前页码
+	 * @param pageSize 分页的已知条件二：每页展现多少条
+	 * @return 获取得到满足过滤条件的分页结果（分页的列表，当前的页码、共多少条、共多少页）
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public PageResult<User> pageByConditions(String username, String status, Integer currentPage, Integer pageSize) throws ClassNotFoundException, SQLException {
+		
+		PageResult<User> pageResult = new PageResult<User>();
+		
+		UserDao userDao = new UserDao();
+		Integer firstResult = (currentPage - 1) * pageSize;
+		List<User> list = userDao.pageByConditions(username, status, firstResult, pageSize);
+		int totalCount = userDao.countByConditions(username, status);
+		int totalPage = totalCount % pageSize == 0 ? totalCount / pageSize : totalCount / pageSize + 1;
+		
+		pageResult.setList(list);
+		pageResult.setCurrentPage(currentPage);
+		pageResult.setTotalCount(totalCount);
+		pageResult.setTotalPage(totalPage);
+	
+		return pageResult;
 	}
 	
 }
