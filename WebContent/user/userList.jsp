@@ -149,9 +149,17 @@
 	  	 			<tbody>
 	  	 				<tr>
 	  	 					<td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none">
-	  	 						<span onclick="gotoPage(${page.currentPage-1})">上一页</span>
+	  	 					
+	  	 						<c:if test="${pageResutl.currentPage > 1}">
+	  	 							<span onclick="gotoPage(${page.currentPage-1})">上一页</span>
+	  	 						</c:if>
+	  	 						
 	  	 						<span class="current">${pageResult.currentPage}</span>
-	  	 						<span onclick="gotoPage(${page.currentPage+1})">下一页</span>
+	  	 						
+	  	 						<c:if test="${pageResult.currentPage < pageResult.totalPage }">
+	  	 							<span onclick="gotoPage(${page.currentPage+1})">下一页</span>
+	  	 						</c:if>
+	  	 						
 								<!-- &nbsp;跳转到&nbsp;&nbsp;<input name="currentPage" style="text-align: center;BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 2px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none" type="text" size="2" id="pager_jump_page_size"> -->
 								<!-- &nbsp;<input type="button" style="text-align: center;BORDER-RIGHT: #dedfde 1px solid; PADDING-RIGHT: 6px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dedfde 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; BORDER-LEFT: #dedfde 1px solid; COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #dedfde 1px solid; TEXT-DECORATION: none" value="确定" id="pager_jump_btn"> -->
 							<!-- </td> -->
