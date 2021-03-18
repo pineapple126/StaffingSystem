@@ -2,8 +2,6 @@ package com.icss.StaffingSystem.util;
 
 import java.util.*;
 
-import com.icss.StaffingSystem.entity.User;
-
 public class PageResult<T> {
 
 	private List<T> list; // 分页的列表

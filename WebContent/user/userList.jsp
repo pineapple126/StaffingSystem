@@ -78,7 +78,8 @@
 		  		<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
 		    		<tr>
 			  			<td class="fftd">
-			  				<form action="UserListServlet" method="post">
+			  				<form id="searchForm" action="UserListServlet" method="post">
+			  					<input id="currentPage" style="display: none;" type="text" name="currentPage" />
 			  					<table width="100%" border="0" cellpadding="0" cellspacing="0">
 						  			<tr>
 						    			<td class="font3">
@@ -148,18 +149,18 @@
 	  	 			<tbody>
 	  	 				<tr>
 	  	 					<td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none">
-	  	 						<span class="disabled">上一页</span>
+	  	 						<span onclick="gotoPage(${page.currentPage-1})">上一页</span>
 	  	 						<span class="current">${pageResult.currentPage}</span>
-	  	 						<span class="disabled">下一页</span>
-	  	 						&nbsp;跳转到&nbsp;&nbsp;<input name="currentPage" style="text-align: center;BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 2px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none" type="text" size="2" id="pager_jump_page_size">
-	  	 						&nbsp;<input type="button" style="text-align: center;BORDER-RIGHT: #dedfde 1px solid; PADDING-RIGHT: 6px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dedfde 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; BORDER-LEFT: #dedfde 1px solid; COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #dedfde 1px solid; TEXT-DECORATION: none" value="确定" id="pager_jump_btn">
-	  	 					</td>
-	  	 				</tr>
-	  	 				<tr align="center">
-	  	 					<td style="font-size:13px;"></td>
-	  	 				</tr>
-	  	 				<tr>
-	  	 					<td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none">
+	  	 						<span onclick="gotoPage(${page.currentPage+1})">下一页</span>
+								<!-- &nbsp;跳转到&nbsp;&nbsp;<input name="currentPage" style="text-align: center;BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 2px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none" type="text" size="2" id="pager_jump_page_size"> -->
+								<!-- &nbsp;<input type="button" style="text-align: center;BORDER-RIGHT: #dedfde 1px solid; PADDING-RIGHT: 6px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dedfde 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; BORDER-LEFT: #dedfde 1px solid; COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #dedfde 1px solid; TEXT-DECORATION: none" value="确定" id="pager_jump_btn"> -->
+							<!-- </td> -->
+	  	 				<!-- </tr> -->
+	  	 				<!-- <tr align="center"> -->
+	  	 					<!-- <td style="font-size:13px;"></td> -->
+	  	 				<!-- </tr> -->
+	  	 				<!-- <tr> -->
+	  	 					<!-- <td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none"> -->
 	  	 						总共<font color="red"> ${pageResult.totalCount} </font>条记录，共<font color="red"> ${pageResult.totalPage} </font>页
 	  	 					</td>
   	 					</tr>
@@ -169,5 +170,15 @@
   		</tr>
 	</table>
 	<div style="height:10px;"></div>
+	
+	<script type="text/javascript">
+		function gotoPage(currentPage) {
+			// form 表单需要传递一个展现的页码参数
+			$("#currentPage").val(currentPage);
+			
+			// 要让搜索区域的 form 表单提交
+			$("#searchForm").submit();
+		}
+	</script>
 </body>
 </html>
