@@ -72,4 +72,21 @@ public class UserService {
 		return userList;
 	}
 	
+	/**
+	 * 实现获取得到满足过滤条件的用户列表的业务逻辑
+	 * @param username 过滤条件一：用户名
+	 * @param status 过滤条件二：用户状态
+	 * @return 获取得到的满足过滤条件的用户列表
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public List<User> findUserListByCondition(String username, String status) throws ClassNotFoundException, SQLException {
+		
+		UserDao userDao = new UserDao();
+		
+		List<User> userList = userDao.selectUserListByCondition(username, status);
+		
+		return userList;
+	}
+	
 }

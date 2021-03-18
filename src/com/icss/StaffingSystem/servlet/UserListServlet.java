@@ -12,7 +12,7 @@ import com.icss.StaffingSystem.entity.User;
 import com.icss.StaffingSystem.service.UserService;
 
 /**
- * UserListServlet
+ * 展示用户列表的 servlet
  * @author pineapple126
  * 
  */
@@ -35,9 +35,14 @@ public class UserListServlet extends HttpServlet {
 		// 1.接受请求 2.处理请求 3.完成跳转
 		try {
 			
+			String username = request.getParameter("username");
+			String status = request.getParameter("status");
+			
 			UserService userService = new UserService();
 			
-			List<User> userList = userService.findAllUserList();
+			
+//			List<User> userList = userService.findAllUserList();
+			List<User> userList = userService.findUserListByCondition(username, status);
 			
 			request.setAttribute("userList", userList);	
 			

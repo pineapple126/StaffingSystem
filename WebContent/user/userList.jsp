@@ -78,21 +78,22 @@
 		  		<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
 		    		<tr>
 			  			<td class="fftd">
-			  	
-				    		<table width="100%" border="0" cellpadding="0" cellspacing="0">
-					  			<tr>
-					    			<td class="font3">
-								    	用户名：<input type="text" name="username">
-								    	用户状态：<select name="status">
-							    			<option value="">全部</option>
-											<option value="1">管理员</option>
-											<option value="2">普通用户</option>
-										</select>
-					    	 			<input type="submit" value="搜索"/>
-					    				<input id="delete" type="button" value="删除"/>
-					    			</td>
-					  			</tr>
-							</table>
+			  				<form action="UserListServlet" method="post">
+			  					<table width="100%" border="0" cellpadding="0" cellspacing="0">
+						  			<tr>
+						    			<td class="font3">
+									    	用户名：<input type="text" name="username">
+									    	用户状态：<select name="status">
+								    			<option value="">全部</option>
+												<option value="1">管理员</option>
+												<option value="2">普通用户</option>
+											</select>
+						    	 			<input type="submit" value="搜索"/>
+						    				<input id="delete" type="button" value="删除"/>
+						    			</td>
+						  			</tr>
+								</table>
+			  				</form>
 			
 			  			</td>
 					</tr>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.icss.StaffingSystem.service.UserService;
 
 /**
- * LoginServlet
+ * ÓÃ»§µÇÂ¼µÄ servlet
  * @author pineapple126
  */
 public class LoginServlet extends HttpServlet {
