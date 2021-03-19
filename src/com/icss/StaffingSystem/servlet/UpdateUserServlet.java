@@ -8,20 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.icss.StaffingSystem.entity.User;
 import com.icss.StaffingSystem.service.UserService;
-import com.icss.StaffingSystem.util.PageResult;
 
 /**
- * 展示用户列表的 servlet -> 完善为展现满足过滤条件的用户列表展示的 servlet -> 完善为满足过滤条件并且分页的用户列表展示的 servlet
+ * 用于实现修改指定用户信息的 Servlet
  * @author pineapple126
- * 
  */
-public class UserListServlet extends HttpServlet {
+public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserListServlet() {
+    public UpdateUserServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,49 +29,32 @@ public class UserListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		try {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("utf-8");
 			
 			// 1.接受请求
-			// 阶段1：无过滤条件、无分页获取用户列表。无参数
-			
-			// 阶段2：有过滤条件、无分页获取用户列表。
+			String uid = request.getParameter("uid");
 			String username = request.getParameter("username");
 			String status = request.getParameter("status");
-			
-			// 阶段3：有过滤条件、有分页获取用户列表
-			// 接受到用户想要查看的页码
-			String currentPageStr = request.getParameter("currentPage");
-			
-			Integer currentPage = 1;
-			if (currentPageStr != null && !"".equals(currentPageStr)) {
-				currentPage = Integer.parseInt(currentPageStr);
-			}
-			
-			// 每页展示条数
-			Integer pageSize = 5;
+			String loginname = request.getParameter("loginname");
 			
 			// 2.处理请求
 			UserService userService = new UserService();
-			
-			// 阶段1：无过滤条件、无分页获取用户列表
-			// List<User> userList = userService.findAllUserList();
-			
-			// 阶段2：有过滤条件、无分页获取用户列表
-			// List<User> userList = userService.findUserListByConditions(username, status);
-			
-			// 阶段3：有过滤条件、有分页获取用户列表 -> 需要一个能够帮助我们获取得到满足过滤条件的分页结果（分页的列表，当前的页码、共多少条、共多少页）的业务逻辑
-			PageResult<User> pageResult = userService.pageByConditions(username, status, currentPage, pageSize);
-			
-			request.setAttribute("pageResult", pageResult);	
+			boolean flag = userService.updateUser(Integer.parseInt(uid), username, status, loginname);
 			
 			// 3.完成跳转
-			request.getRequestDispatcher("/user/userList.jsp").forward(request, response);
+			if (flag) {
+				request.getRequestDispatcher("/user/UserListServlet").forward(request, response);
+			} else {
+				request.setAttribute("errorMsg", "该登录名已被占用，请重新输入！");
+				// 获取得到要修改的用户信息，然后将得到的用户信息传递到下一个资源上去
+				User user = userService.findByUid(Integer.parseInt(uid));
+				request.setAttribute("user", user);
+				request.getRequestDispatcher("/user/editUser.jsp").forward(request, response);
+			}
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -27,7 +27,7 @@ public class UserService {
 		
 		UserDao userDao = new UserDao();
 		// 通过要登录的用户名去数据库中查找用户信息
-		User user = userDao.selectByUname(loginname);
+		User user = userDao.selectByLoginname(loginname);
 		
 		// 如果查找到用户信息
 			// 则判断查找到的用户信息的密码和用户输入的要登陆的密码的内容是否一致
@@ -81,11 +81,11 @@ public class UserService {
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public List<User> findUserListByCondition(String username, String status) throws ClassNotFoundException, SQLException {
+	public List<User> findUserListByConditions(String username, String status) throws ClassNotFoundException, SQLException {
 		
 		UserDao userDao = new UserDao();
 		
-		List<User> userList = userDao.selectUserListByCondition(username, status);
+		List<User> userList = userDao.selectUserListByConditions(username, status);
 		
 		return userList;
 	}
@@ -131,9 +131,9 @@ public class UserService {
 		
 		UserDao userDao = new UserDao();
 		
-		User u = userDao.selectByUname(loginname);
+		User user = userDao.selectByLoginname(loginname);
 		
-		if (u != null) {
+		if (user != null) {
 			return false;
 		}
 		
@@ -155,6 +155,29 @@ public class UserService {
 		User user = userDao.selectByUid(uid);
 	
 		return user;
+	}
+	
+	/**
+	 * 实现修改指定用户信息的业务逻辑
+	 * @param uid 指定的用户编号
+	 * @param username 修改后的用户名
+	 * @param status 修改后的状态
+	 * @param loginname 修改后的登录名
+	 * @return 修改是否成功
+	 * @throws Exception
+	 */
+	public boolean updateUser(int uid, String username, String status, String loginname) throws Exception {
+		
+		UserDao userDao = new UserDao();
+		
+		User user = userDao.selectByLoginname(loginname);
+		
+		if (user != null && user.getUid() != uid) {
+			return false;
+		}
+		
+		userDao.updateUser(uid, username, status, loginname);
+		return true;
 	}
 	
 }

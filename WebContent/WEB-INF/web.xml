@@ -49,4 +49,14 @@
     <servlet-name>EditUserServlet</servlet-name>
     <url-pattern>/user/EditUserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateUserServlet</display-name>
+    <servlet-name>UpdateUserServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.UpdateUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserServlet</servlet-name>
+    <url-pattern>/user/UpdateUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

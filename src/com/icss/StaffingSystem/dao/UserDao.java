@@ -23,7 +23,7 @@ public class UserDao {
 	 * @return 如果查找到返回的是查找到的用户信息，否则返回 null
 	 * @throws Exception
 	 */
-	public User selectByUname(String loginname) throws Exception {
+	public User selectByLoginname(String loginname) throws Exception {
 		//1、加载JDBC驱动
 		Class.forName("com.mysql.jdbc.Driver");
 		
@@ -110,7 +110,7 @@ public class UserDao {
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public List<User> selectUserListByCondition(String username, String status) throws ClassNotFoundException, SQLException {
+	public List<User> selectUserListByConditions(String username, String status) throws ClassNotFoundException, SQLException {
 		//1、加载JDBC驱动
 		Class.forName("com.mysql.jdbc.Driver");
 		
@@ -333,6 +333,40 @@ public class UserDao {
 		conn.close();
 		
 		return user;		
+		
+	}
+	
+	/**
+	 * 从数据库中修改指定的用户信息
+	 * @param uid 指定的用户编号
+	 * @param username 修改的用户名
+	 * @param status 修改的用户状态
+	 * @param loginname 修改的登录名
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public void updateUser(int uid, String username, String status, String loginname) throws ClassNotFoundException, SQLException {
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "update user_inf set loginname=?, username=?, status=? where uid=?";	
+		
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, loginname);
+		st.setString(2, username);
+		st.setString(3, status);
+		st.setInt(4, uid);
+		st.execute();
+		
+		//6、释放资源
+		st.close();
+		conn.close();
 		
 	}
 	

@@ -25,7 +25,7 @@
 	
 
     	/** 员工表单提交 */
-		function submit(){
+		function submitAddUser(){
 			var username = $("#username");
 			var status = $("#status");
 			var loginname = $("#loginname");
@@ -47,10 +47,9 @@
 			if (msg != ""){
 				$.ligerDialog.error(msg);
 				return false;
-			}else{
-				return true;
 			}
-			$("#userForm").submit();
+			
+			$("#addUserForm").submit();
 		}
  
 		
@@ -83,7 +82,7 @@
     
 	    	 	<!-- 隐藏表单，flag表示添加标记 -->
 	    	 	<input type="hidden" name="flag" value="2">
-	    	 	<form id="userForm" action="AddUserServlet" method="post">
+	    	 	<form id="addUserForm" action="AddUserServlet" method="post">
 			  		<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
 			    		<tr>
 			    			<td class="font3 fftd">
@@ -124,7 +123,7 @@
 				
 						<tr>
 							<td align="left" class="fftd">
-								<input type="button" onclick="submit()" value="添加">&nbsp;&nbsp;
+								<input type="button" onclick="submitAddUser()" value="添加">&nbsp;&nbsp;
 								<input type="reset" value="取消 ">&nbsp;&nbsp;
 								<span style="color: red;">${errorMsg}</span>
 							</td>

@@ -23,8 +23,8 @@
 	<link href="../css/pager.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript">
 	
-		function submit(){
-			$("#status").val($("#sta").val());
+		function submitEditUser(){
+			// $("#status").val($("#sta").val());
     		/** 员工表单提交 */
 		
 			var username = $("#username");
@@ -45,10 +45,9 @@
 			if (msg != ""){
 				$.ligerDialog.error(msg);
 				return false;
-			}else{
-				return true;
 			}
-			//$("#userForm").submit();
+			
+			$("#editUserForm").submit();
 	
 		}
 
@@ -74,51 +73,52 @@
 	<table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
   		<tr valign="top">
     		<td>
-    	 
-	    	 	<!-- 隐藏表单，flag表示添加标记 -->
-	    	 	<input type="hidden" name="flag" value="2">
-				<input type="hidden" name="id" value="${user.uid}">
-		  		<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
-		    		<tr>
-		    			<td class="font3 fftd">
-		    				<table>
-		    					<tr>
-		    						<td class="font3 fftd">
-		    							姓名：<input type="text" name="username" id="username" size="20" value="${user.username}"/>
-		    						</td>
-		    						<td class="font3 fftd">
-		    							状态：
-		    							<select name="status" id="status" >
-		    								<option value ="1" <c:if test="${user.status == 1}">selected</c:if>>管理员</option>
-		    								<option value ="2" <c:if test="${user.status == 2}">selected</c:if>>普通用户</option>
-										</select>
-										<input type="hidden" name="sta" id="sta"  value="wangxh"/>
-									</td>
-	    						</tr>
-		    			
-		    					<tr>
-		    						<td class="font3 fftd">
-		    							登录名：
-		    							<input name="loginname" id="loginname" size="20" value="${user.loginname}"/>
-		    							<input type="hidden" name="password" id="password" size="20" value="songyq"/>
-		    						</td>
-		    			
-		    					</tr>
-		    		
-		    				</table>
-		    			</td>
-	    			</tr>
-					<tr>
-						<td class="main_tdbor"></td>
-					</tr>
-			
-					<tr>
-						<td align="left" class="fftd">
-							<input type="button" onclick="submit()" value="修改 ">&nbsp;&nbsp;
-							<input type="reset" value="取消 ">
-						</td>
-					</tr>
-				</table>
+    	 		
+				<form id="editUserForm" action="UpdateUserServlet" method="post">
+					<input type="text" style="display: none;" id="uid" name="uid" value="${user.uid}" />
+			  		<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
+			    		<tr>
+			    			<td class="font3 fftd">
+			    				<table>
+			    					<tr>
+			    						<td class="font3 fftd">
+			    							姓名：<input type="text" name="username" id="username" size="20" value="${user.username}"/>
+			    						</td>
+			    						<td class="font3 fftd">
+			    							状态：
+			    							<select name="status" id="status" >
+			    								<option value ="1" <c:if test="${user.status == 1}">selected</c:if>>管理员</option>
+			    								<option value ="2" <c:if test="${user.status == 2}">selected</c:if>>普通用户</option>
+											</select>
+											<input type="hidden" name="sta" id="sta"  value="songyq"/>
+										</td>
+		    						</tr>
+			    			
+			    					<tr>
+			    						<td class="font3 fftd">
+			    							登录名：
+			    							<input name="loginname" id="loginname" size="20" value="${user.loginname}"/>
+			    							<input type="hidden" name="password" id="password" size="20" value="songyq"/>
+			    						</td>
+			    			
+			    					</tr>
+			    		
+			    				</table>
+			    			</td>
+		    			</tr>
+						<tr>
+							<td class="main_tdbor"></td>
+						</tr>
+				
+						<tr>
+							<td align="left" class="fftd">
+								<input type="button" onclick="submitEditUser()" value="修改 ">&nbsp;&nbsp;
+								<input type="reset" value="取消 ">
+								<span style="color: red">${errorMsg}</span>
+							</td>
+						</tr>
+					</table>
+				</form>
 			</td>
 		</tr>
 	</table>
