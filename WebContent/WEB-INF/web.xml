@@ -29,4 +29,14 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/user/UserListServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddUserServlet</display-name>
+    <servlet-name>AddUserServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.AddUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddUserServlet</servlet-name>
+    <url-pattern>/user/AddUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

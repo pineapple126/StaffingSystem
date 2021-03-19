@@ -118,4 +118,27 @@ public class UserService {
 		return pageResult;
 	}
 	
+	/**
+	 * 实现添加指定用户信息的业务逻辑
+	 * @param username 要添加的用户名
+	 * @param status 要添加的用户状态
+	 * @param loginname 要添加的登录名
+	 * @param password 要添加的密码
+	 * @return 要添加的添加指定用户是否成功
+	 * @throws Exception 
+	 */
+	public boolean addUser(String username, String status, String loginname, String password) throws Exception {
+		
+		UserDao userDao = new UserDao();
+		
+		User u = userDao.selectByUname(loginname);
+		
+		if (u != null) {
+			return false;
+		}
+		
+		userDao.insertUser(username, status, loginname, password);
+		return true;
+	}
+	
 }

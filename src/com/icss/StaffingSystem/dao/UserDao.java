@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.*;
 
 import com.icss.StaffingSystem.entity.User;
@@ -252,6 +253,42 @@ public class UserDao {
 		conn.close();
 		
 		return totalCount;
+	}
+	
+	/**
+	 * 向数据库添加一条用户信息
+	 * @param username 要添加的用户名
+	 * @param status 要添加的状态
+	 * @param loginname 要添加的登录名
+	 * @param password 要添加的密码
+	 * @throws ClassNotFoundException 
+	 * @throws SQLException 
+	 */
+	public void insertUser(String username, String status, String loginname, String password) throws ClassNotFoundException, SQLException {
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "insert into user_inf(loginname, password, status, createdate, username, isface) values(?, ?, ?, ?, ?, ?)";	
+		
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, loginname);
+		st.setString(2, password);
+		st.setString(3, status);
+		st.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
+		st.setString(5, username);
+		st.setString(6, "2");
+		st.execute();
+		
+		//6、释放资源
+		st.close();
+		conn.close();
+		
 	}
 	
 }
