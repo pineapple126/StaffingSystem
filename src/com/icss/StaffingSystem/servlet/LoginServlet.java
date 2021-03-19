@@ -29,6 +29,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
+			request.setCharacterEncoding("utf-8");
+			response.setCharacterEncoding("utf-8");
+			
 			//1. 接受请求
 			//（1）获取得到用户输入的登录用户名
 			String loginname = request.getParameter("loginname");

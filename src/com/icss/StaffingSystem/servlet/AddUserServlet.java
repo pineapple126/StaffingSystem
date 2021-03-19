@@ -29,6 +29,8 @@ public class AddUserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		try {
+			request.setCharacterEncoding("utf-8");
+			response.setCharacterEncoding("utf-8");
 			
 			// 1.Ω” ‹«Î«Û
 			String username = request.getParameter("username");

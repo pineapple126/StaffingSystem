@@ -33,6 +33,9 @@ public class UserListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		try {
+			request.setCharacterEncoding("utf-8");
+			response.setCharacterEncoding("utf-8");
+			
 			// 1.接受请求
 			// 阶段1：无过滤条件、无分页获取用户列表。无参数
 			
