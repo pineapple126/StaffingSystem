@@ -370,4 +370,31 @@ public class UserDao {
 		
 	}
 	
+	/**
+	 * 删除多条指定用户编号的用户信息
+	 * @param ids 指定的用户编号
+	 * @throws ClassNotFoundException 
+	 * @throws SQLException 
+	 */
+	public void deleteUsers(String ids) throws ClassNotFoundException, SQLException {
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "delete from user_inf where uid in(" + ids + ")";	
+		
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.execute();
+		
+		//6、释放资源
+		st.close();
+		conn.close();
+		
+	}
+	
 }

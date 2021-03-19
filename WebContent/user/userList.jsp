@@ -46,12 +46,12 @@
 	 			   	var ids = checkedBoxs.map(function(){
 	 				   	return this.value;
 	 			   	})
-	 			   
+
 	 			   	$.ligerDialog.confirm("确认要删除吗?","删除用户",function(r){
 	 				   	if(r){
 	 					   	// alert("删除："+ids.get());
 	 					   	// 发送请求
-	 					  	// window.location = "${ctx }/user/removeUser?ids=" + ids.get();
+	 						window.location = "DeleteUserServlet?ids=" + ids.get();
 	 				   	}
 	 			   	});
 	 		   	}
@@ -118,7 +118,7 @@
 						
 						<c:forEach items="${pageResult.list}" var="user">
 							<tr id="data_0" align="center" class="main_trbg" style="background-color: rgb(255, 255, 255);">
-								<td><input type="checkbox" id="box_0" value="1"></td>
+								<td><input type="checkbox" id="box_0" value="${user.uid}"></td>
 					 			<td>${user.loginname}</td>
 						  		<td>${user.username}</td>
 						  		<td>

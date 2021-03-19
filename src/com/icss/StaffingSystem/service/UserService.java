@@ -180,4 +180,19 @@ public class UserService {
 		return true;
 	}
 	
+	/**
+	 * 实现删除多条指定用户编号的用户信息的业务逻辑
+	 * @param ids 指定的用户编号
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public void deleteUsers(String ids) throws ClassNotFoundException, SQLException {
+
+		// 从数据库里删除多条指定编号的用户信息
+		UserDao userDao = new UserDao();
+		
+		userDao.deleteUsers(ids);
+		
+	}
+	
 }

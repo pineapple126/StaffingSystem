@@ -59,4 +59,14 @@
     <servlet-name>UpdateUserServlet</servlet-name>
     <url-pattern>/user/UpdateUserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteUserServlet</display-name>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.DeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <url-pattern>/user/DeleteUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
