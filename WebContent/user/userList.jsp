@@ -132,7 +132,7 @@
 						  		<td>${user.createdate}</td>
 									
 						 		<td align="center" width="40px;">
-						 			<a href="showUpdateUser.html">
+						 			<a href="EditUserServlet?uid=${user.uid}">
 										<img title="修改" src="../images/update.gif">
 									</a>
 						  		</td>

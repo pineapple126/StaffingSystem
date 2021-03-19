@@ -39,4 +39,14 @@
     <servlet-name>AddUserServlet</servlet-name>
     <url-pattern>/user/AddUserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditUserServlet</display-name>
+    <servlet-name>EditUserServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.EditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUserServlet</servlet-name>
+    <url-pattern>/user/EditUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

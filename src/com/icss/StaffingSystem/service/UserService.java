@@ -141,4 +141,20 @@ public class UserService {
 		return true;
 	}
 	
+	/**
+	 * 实现从数据库中通过指定的用户编号查找用户信息的业务逻辑
+	 * @param uid 指定的用户编号
+	 * @return 查找到的用户信息
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public User findByUid(int uid) throws ClassNotFoundException, SQLException {
+		
+		UserDao userDao = new UserDao();
+		
+		User user = userDao.selectByUid(uid);
+	
+		return user;
+	}
+	
 }
