@@ -3,6 +3,8 @@ package com.icss.StaffingSystem.service;
 import java.sql.SQLException;
 import java.util.*;
 
+import com.icss.StaffingSystem.dao.DocumentDao;
+import com.icss.StaffingSystem.dao.NoticeDao;
 import com.icss.StaffingSystem.dao.UserDao;
 import com.icss.StaffingSystem.entity.User;
 import com.icss.StaffingSystem.util.PageResult;
@@ -187,10 +189,16 @@ public class UserService {
 	 * @throws ClassNotFoundException 
 	 */
 	public void deleteUsers(String ids) throws ClassNotFoundException, SQLException {
-
-		// 从数据库里删除多条指定编号的用户信息
-		UserDao userDao = new UserDao();
+		// 1.由于用户和公告是相关联的，所以在删除用户之前，需要将他们的关联数据也删除掉
+		NoticeDao noticeDao = new NoticeDao();
+		noticeDao.deleteByUserids(ids);
 		
+		// 2.由于用户和文档中心是相关联的，所以在删除用户之前，需要将他们的关联数据也删除掉
+		DocumentDao documentDao = new DocumentDao();
+		documentDao.deleteByUserids(ids);
+		
+		// 3.从数据库里删除多条指定编号的用户信息
+		UserDao userDao = new UserDao();		
 		userDao.deleteUsers(ids);
 		
 	}
