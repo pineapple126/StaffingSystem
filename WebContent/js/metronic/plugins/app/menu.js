@@ -27,8 +27,8 @@ function loadMenu(){
 	+'"childs": []}]},{"id": "16","name": "公告管理","icon": "/xingxing.png","url": "notice/NoticeListServlet","parentId": "1",'
 	+'"childs": [{"id": "161","name": "公告查询","icon": "","url": "notice/NoticeListServlet","parentId": "16",'
 	+'"childs": []},{"id": "162","name": "添加公告","icon": "","url": "notice/addNotice.jsp","parentId": "16",'
-	+'"childs": []}]},{"id": "17","name": "下载中心","icon": "/xingxing.png","url": "document/document.html","parentId": "1",'
-	+'"childs": [{"id": "171","name": "文档查询","icon": "","url": "document/document.html","parentId": "17",'
+	+'"childs": []}]},{"id": "17","name": "下载中心","icon": "/xingxing.png","url": "document/DocumentListServlet","parentId": "1",'
+	+'"childs": [{"id": "171","name": "文档查询","icon": "","url": "document/DocumentListServlet","parentId": "17",'
 	+'"childs": []},{"id": "172","name": "上传文档","icon": "","url": "document/showAddDocument.html","parentId": "17","childs": []}]}]}]';
 	// jquery的方法
 	var jsonObj = $.parseJSON(json)

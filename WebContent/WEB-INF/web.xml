@@ -99,4 +99,14 @@
     <servlet-name>NoticeDetailServlet</servlet-name>
     <url-pattern>/notice/NoticeDetailServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DocumentListServlet</display-name>
+    <servlet-name>DocumentListServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.DocumentListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DocumentListServlet</servlet-name>
+    <url-pattern>/document/DocumentListServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
