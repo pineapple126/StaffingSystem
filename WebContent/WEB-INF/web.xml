@@ -109,4 +109,14 @@
     <servlet-name>DocumentListServlet</servlet-name>
     <url-pattern>/document/DocumentListServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddDocumentServlet</display-name>
+    <servlet-name>AddDocumentServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.AddDocumentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddDocumentServlet</servlet-name>
+    <url-pattern>/document/AddDocumentServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

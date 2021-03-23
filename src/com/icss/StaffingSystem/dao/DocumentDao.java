@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -134,6 +135,42 @@ public class DocumentDao {
 		conn.close();
 		
 		return totalCount;
+	}
+	
+	/**
+	 * 向数据库中添加一条指定的文档记录
+	 * @param title 要添加的文档标题
+	 * @param remark 要添加的文档描述
+	 * @param filepath 文档存储的路径
+	 * @param userid 上传文档的用户编号
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public void insertDocument(String title, String remark, String filepath, int userid) throws ClassNotFoundException, SQLException {
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "insert into document_inf(title, filepath, remark, createdate, userid) values(?,?,?,?,?)";	
+		
+	
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, title);
+		st.setString(2, filepath);
+		st.setString(3, remark);
+		st.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
+		st.setInt(5, userid);
+		st.execute();
+		
+		
+		//6、释放资源
+		st.close();
+		conn.close();
 	}
 	
 }

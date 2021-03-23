@@ -41,4 +41,21 @@ public class DocumentService {
 		return pageResult;
 	}
 	
+	/**
+	 * 实现添加一条指定文档的业务逻辑
+	 * @param title 要添加的文档标题
+	 * @param remark 要添加的文档描述
+	 * @param filepath 文档存储的路径
+	 * @param userid 上传的用户编号
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public void addDocument(String title, String remark, String filepath, int userid) throws ClassNotFoundException, SQLException {
+		
+		DocumentDao documentDao = new DocumentDao();
+		
+		documentDao.insertDocument(title, remark, filepath, userid);
+		
+	}
+	
 }
