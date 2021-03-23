@@ -153,7 +153,9 @@
 						  		</td>
 					   
 						  		<td align="center" width="40px;">
-						  			<a href="#" id="prev_19"><img title="预览" src="../images/prev.gif"></a>
+						  			<a href="NoticeDetailServlet?id=${notice.id}">
+						  				<img title="预览" src="../images/prev.gif">
+					  				</a>
 						  		</td>
 							</tr>
 						</c:forEach>

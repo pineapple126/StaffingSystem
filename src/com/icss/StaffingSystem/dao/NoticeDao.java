@@ -181,4 +181,47 @@ public class NoticeDao {
 		
 	}
 	
+	/**
+	 * 查询得到指定公告编号的公告信息
+	 * @param id 指定的公告编号
+	 * @return 查找到的公告信息
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public Notice selectById(int id) throws ClassNotFoundException, SQLException {
+	
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "select * from notice_inf where id=?";	
+		
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setInt(1, id);
+		ResultSet rs = st.executeQuery();
+		
+		//5、如果是查询语句，则需要处理结果集 ResultSet
+		Notice notice = null;
+		if (rs.next()) {
+			notice = new Notice();
+			notice.setId(rs.getInt("ID"));
+			notice.setTitle(rs.getString("TITLE"));
+			notice.setContent(rs.getString("CONTENT"));
+			notice.setCreatedate(rs.getTimestamp("CREATEDATE"));
+			notice.setUserid(rs.getInt("USERID"));
+		}
+		
+		//6、释放资源
+		rs.close();
+		st.close();
+		conn.close();
+		
+		return notice;
+		
+	}
+	
 }

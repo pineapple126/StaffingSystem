@@ -58,4 +58,20 @@ public class NoticeService {
 
 	}
 	
+	/**
+	 * 查询得到指定公告编号的公告信息的业务逻辑
+	 * @param id 指定的公告编号
+	 * @return 指定公告编号的公告信息
+	 * @throws Exception
+	 */
+	public Notice findById(int id) throws Exception {
+		
+		NoticeDao noticeDao = new NoticeDao();
+		
+		Notice notice = noticeDao.selectById(id);
+		
+		return notice;
+		
+	}
+	
 }
