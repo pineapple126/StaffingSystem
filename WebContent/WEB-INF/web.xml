@@ -79,4 +79,14 @@
     <servlet-name>NoticeListServlet</servlet-name>
     <url-pattern>/notice/NoticeListServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddNoticeServlet</display-name>
+    <servlet-name>AddNoticeServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.AddNoticeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddNoticeServlet</servlet-name>
+    <url-pattern>/notice/AddNoticeServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

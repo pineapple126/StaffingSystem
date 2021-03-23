@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.icss.StaffingSystem.entity.User;
 import com.icss.StaffingSystem.service.UserService;
 
 /**
@@ -42,12 +43,17 @@ public class LoginServlet extends HttpServlet {
 			UserService userService = new UserService();
 			int result = userService.login(loginname, password);
 			
+			
 			//3. 完成跳转
 			if (result == 1) {
 				// 跳转到管理员登陆成功的页面上去（首页）
+				User userInf = userService.findByLoginname(loginname);
+				request.getSession().setAttribute("loginUser", userInf);
 				request.getRequestDispatcher("/main.jsp").forward(request, response);
 			} else if (result == 2) {
 				// 跳转到普通用户登陆成功的页面上去（首页）
+				User userInf = userService.findByLoginname(loginname);
+				request.getSession().setAttribute("loginUser", userInf);
 				request.getRequestDispatcher("/main.jsp").forward(request, response);
 			}
 			else if (result == 3) {

@@ -203,4 +203,20 @@ public class UserService {
 		
 	}
 	
+	/**
+	 * 实现从数据库中通过指定的用户登录名查找用户信息的业务逻辑
+	 * @param loginname 指定的登录名
+	 * @return 指定登录名的用户信息
+	 * @throws Exception
+	 */
+	public User findByLoginname(String loginname) throws Exception {
+		
+		UserDao userDao = new UserDao();
+		
+		User user = userDao.selectByLoginname(loginname);
+		
+		return user;
+		
+	}
+	
 }

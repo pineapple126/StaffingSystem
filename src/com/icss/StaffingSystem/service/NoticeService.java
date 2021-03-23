@@ -42,4 +42,20 @@ public class NoticeService {
 		return pageResult;
 	}
 	
+	/**
+	 * 添加指定公告信息的业务逻辑
+	 * @param title 添加的公告标题
+	 * @param content 添加的公告内容
+	 * @param userid 添加的公告人
+	 * @return 添加成功与否
+	 * @throws Exception
+	 */
+	public void addNotice(String title, String content, int userid) throws Exception {
+		
+		NoticeDao noticeDao = new NoticeDao();
+		
+		noticeDao.insertNotice(title, content, userid);
+
+	}
+	
 }

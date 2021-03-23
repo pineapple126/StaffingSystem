@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,6 +144,41 @@ public class NoticeDao {
 		conn.close();
 		
 		return totalCount;
+	}
+	
+	/**
+	 * 向数据库中添加一条指定的公告信息
+	 * @param title 添加的公告标题
+	 * @param content 添加的公告内容
+	 * @param userid 添加的公告人
+	 * @throws ClassNotFoundException 
+	 * @throws SQLException 
+	 */
+	public void insertNotice(String title, String content, int userid) throws ClassNotFoundException, SQLException {
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "insert into notice_inf(title, content, createdate, userid) values(?,?,?,?)";	
+		
+	
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, title);
+		st.setString(2, content);
+		st.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+		st.setInt(4, userid);
+		st.execute();
+		
+		
+		//6、释放资源
+		st.close();
+		conn.close();
+		
 	}
 	
 }

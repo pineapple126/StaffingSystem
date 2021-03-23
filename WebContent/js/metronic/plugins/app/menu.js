@@ -26,7 +26,7 @@ function loadMenu(){
 	+'"childs": []},{"id": "152","name": "员工统计","icon": "","url": "employee/showEmployeeStatistics.html","parentId": "15",'
 	+'"childs": []}]},{"id": "16","name": "公告管理","icon": "/xingxing.png","url": "notice/NoticeListServlet","parentId": "1",'
 	+'"childs": [{"id": "161","name": "公告查询","icon": "","url": "notice/NoticeListServlet","parentId": "16",'
-	+'"childs": []},{"id": "162","name": "添加公告","icon": "","url": "notice/showAddNotice.html","parentId": "16",'
+	+'"childs": []},{"id": "162","name": "添加公告","icon": "","url": "notice/addNotice.jsp","parentId": "16",'
 	+'"childs": []}]},{"id": "17","name": "下载中心","icon": "/xingxing.png","url": "document/document.html","parentId": "1",'
 	+'"childs": [{"id": "171","name": "文档查询","icon": "","url": "document/document.html","parentId": "17",'
 	+'"childs": []},{"id": "172","name": "上传文档","icon": "","url": "document/showAddDocument.html","parentId": "17","childs": []}]}]}]';
