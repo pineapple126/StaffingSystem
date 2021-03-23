@@ -77,15 +77,17 @@ public class DocumentDao {
 		ResultSet rs = st.executeQuery();
 		
 		//5、如果是查询语句，则需要处理结果集 ResultSet
-		List<Document> noticeList = new ArrayList<Document>();
+		List<Document> documentList = new ArrayList<Document>();
 		while (rs.next()) {
-			Document notice = new Document();
-			notice.setId(rs.getInt("ID"));
-			notice.setTitle(rs.getString("TITLE"));
-			notice.setCreatedate(rs.getTimestamp("CREATEDATE"));
-			notice.setUserid(rs.getInt("USERID"));
-			notice.setLoginname(rs.getString("LOGINNAME"));
-			noticeList.add(notice);
+			Document document = new Document();
+			document.setId(rs.getInt("ID"));
+			document.setTitle(rs.getString("TITLE"));
+			document.setFilepath(rs.getString("FILEPATH"));
+			document.setRemark(rs.getString("REMARK"));
+			document.setCreatedate(rs.getTimestamp("CREATEDATE"));
+			document.setUserid(rs.getInt("USERID"));
+			document.setLoginname(rs.getString("LOGINNAME"));
+			documentList.add(document);
 		}		
 		
 		//6、释放资源
@@ -93,7 +95,7 @@ public class DocumentDao {
 		st.close();
 		conn.close();
 		
-		return noticeList;
+		return documentList;
 		
 	}
 
