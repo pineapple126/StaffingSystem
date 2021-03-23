@@ -99,24 +99,27 @@
 	  	<!-- 查询区  -->
 	  	<tr valign="top">
 	    	<td height="30">
-		  		<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
-		    		<tr>
-			  			<td class="fftd">
-			  	
-				    		<table width="100%" border="0" cellpadding="0" cellspacing="0">
-					  			<tr>
-					    			<td class="font3">
-					    				公告名称：<input type="text" name="title">
-					    				公告内容：<input type="text" name="content">
-					    	 			<input type="submit" value="搜索"/>
-					    				<input id="delete" type="button" value="删除"/>
-					    			</td>
-					  			</tr>
-							</table>
-				
-			  			</td>
-					</tr>
-		  		</table>
+		    	<form id="searchForm" action="NoticeListServlet" method="post">
+		    		<input id="currentPage" style="display: none;" type="text" name="currentPage" />
+			    	<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
+			    		<tr>
+				  			<td class="fftd">
+				  	
+					    		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+						  			<tr>
+						    			<td class="font3">
+						    				公告名称：<input type="text" name="title" value="${param.title}">
+						    				公告内容：<input type="text" name="content" value="${patam.content}">
+						    	 			<input type="submit" value="搜索"/>
+						    				<input id="delete" type="button" value="删除"/>
+						    			</td>
+						  			</tr>
+								</table>
+					
+				  			</td>
+						</tr>
+			  		</table>
+		    	</form>
 			</td>
 	  	</tr>
 	  
@@ -143,7 +146,7 @@
 					 			<td>${notice.title}</td>
 						  		<td>${notice.content}</td>
 						  		<td>${notice.createdate}</td>
-						  		<td>${notice.userid}</td>
+						  		<td>${notice.loginname}</td>
 									
 						 		<td align="center" width="40px;"><a href="showUpdateNotice.html">
 									<img title="修改" src="../images/update.gif"></a>
@@ -167,14 +170,14 @@
 		  	 			<tr>
 		  	 				<td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none">
 		  	 				
-		  	 					<c:if test="${pageResutl.currentPage > 1}">
-	  	 							<span onclick="gotoPage(${page.currentPage-1})">上一页</span>
+		  	 					<c:if test="${pageResult.currentPage > 1}">
+	  	 							<span onclick="gotoPage(${pageResult.currentPage-1})">上一页</span>
 	  	 						</c:if>
 	  	 						
 	  	 						<span class="current">${pageResult.currentPage}</span>
 	  	 						
 	  	 						<c:if test="${pageResult.currentPage < pageResult.totalPage }">
-	  	 							<span onclick="gotoPage(${page.currentPage+1})">下一页</span>
+	  	 							<span onclick="gotoPage(${pageResult.currentPage+1})">下一页</span>
 	  	 						</c:if>
 
 		  	 					<!-- &nbsp;跳转到&nbsp;&nbsp;<input name="currentPage" style="text-align: center;BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 2px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none" type="text" size="2" id="pager_jump_page_size"> -->
@@ -195,5 +198,15 @@
 		</tr>
 	</table>
 	<div style="height:10px;"></div>
+	
+	<script type="text/javascript">
+		function gotoPage(currentPage) {
+			// form 表单需要传递一个展现的页码参数
+			$("#currentPage").val(currentPage);
+			
+			// 要让搜索区域的 form 表单提交
+			$("#searchForm").submit();
+		}
+	</script>
 </body>
 </html>

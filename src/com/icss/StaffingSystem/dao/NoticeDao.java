@@ -63,13 +63,13 @@ public class NoticeDao {
 		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
 		
 		//3、编写想要执行的sql语句
-		String sql = "select * from notice_inf where 1=1";	
+		String sql = "select n.*, u.loginname from notice_inf n, user_inf u where n.userid=u.uid";	
 		
 		if (title != null && !"".equals(title)) {
-			sql += " and title like '%" + title + "%'";
+			sql += " and n.title like '%" + title + "%'";
 		}
 		if (content != null && !"".equals(content)) {
-			sql += " and content like '%" + content + "%'";
+			sql += " and n.content like '%" + content + "%'";
 		}
 		sql += " limit ?,?";
 
@@ -88,6 +88,7 @@ public class NoticeDao {
 			notice.setContent(rs.getString("CONTENT"));
 			notice.setCreatedate(rs.getTimestamp("CREATEDATE"));
 			notice.setUserid(rs.getInt("USERID"));
+			notice.setLoginname(rs.getString("LOGINNAME"));
 			noticeList.add(notice);
 		}		
 		

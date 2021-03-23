@@ -14,17 +14,19 @@ public class Notice {
 	private String content; // 公告内容
 	private Timestamp createdate; // 创建时间
 	private int userid; // 公告人
+	private String loginname; // 公告人的登录名
 	
 	public Notice() {
 		super();
 	}
-	public Notice(int id, String title, String content, Timestamp createdate, int userid) {
+	public Notice(int id, String title, String content, Timestamp createdate, int userid, String loginname) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.createdate = createdate;
 		this.userid = userid;
+		this.loginname = loginname;
 	}
 	
 	public int getId() {
@@ -56,6 +58,12 @@ public class Notice {
 	}
 	public void setUserid(int userid) {
 		this.userid = userid;
+	}
+	public String getLoginname() {
+		return loginname;
+	}
+	public void setLoginname(String loginname) {
+		this.loginname = loginname;
 	}
 
 }
