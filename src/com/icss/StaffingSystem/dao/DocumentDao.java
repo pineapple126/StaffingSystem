@@ -219,4 +219,43 @@ public class DocumentDao {
 		
 	}
 	
+	/**
+	 * 修改数据库中指定的文档信息
+	 * @param id 指定的文档编号
+	 * @param title 修改的文档标题
+	 * @param remark
+	 * @param filepath
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public void updateDocument(int id, String title, String remark, String filepath) throws ClassNotFoundException, SQLException {
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "update document_inf set title=?, remark=?";
+
+		if (filepath != null && !"".equals(filepath)) {
+			sql += ", filepath='" + filepath + "'";
+		}
+		sql += " where id=?";
+	
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, title);
+		st.setString(2, remark);
+		st.setInt(3, id);
+		st.execute();
+		
+		
+		//6、释放资源
+		st.close();
+		conn.close();
+		
+	}
+	
 }

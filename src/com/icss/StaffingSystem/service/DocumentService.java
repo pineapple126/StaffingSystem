@@ -4,7 +4,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.icss.StaffingSystem.dao.DocumentDao;
+import com.icss.StaffingSystem.dao.UserDao;
 import com.icss.StaffingSystem.entity.Document;
+import com.icss.StaffingSystem.entity.User;
 import com.icss.StaffingSystem.util.PageResult;
 
 /**
@@ -72,6 +74,21 @@ public class DocumentService {
 		Document document = documentDao.selectById(id);
 	
 		return document;
+	}
+	
+	/**
+	 * 实现修改指定文档信息的业务逻辑 
+	 * @param id 指定的文档编号
+	 * @param title 修改的文档标题
+	 * @param remark 修改的文档描述
+	 * @param filepath 修改的文档路径
+	 * @throws Exception
+	 */
+	public void updateDocument(int id, String title, String remark, String filepath) throws Exception {
+		
+		DocumentDao documentDao = new DocumentDao();
+		
+		documentDao.updateDocument(id, title, remark, filepath);
 	}
 	
 }

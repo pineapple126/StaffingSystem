@@ -139,4 +139,14 @@
     <servlet-name>EditDocumentServlet</servlet-name>
     <url-pattern>/document/EditDocumentServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateDocumentServlet</display-name>
+    <servlet-name>UpdateDocumentServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.UpdateDocumentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateDocumentServlet</servlet-name>
+    <url-pattern>/document/UpdateDocumentServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -31,7 +31,7 @@
 	        		return ;
 	        	}
 	        	
-	        	//$("#formEditDocument").submit();
+	        	$("#formEditDocument").submit();
 	        	
 	        })
 	    });
@@ -57,9 +57,8 @@
 			    
 				 
             	<!-- 隐藏表单，flag表示添加标记 -->
-   	 			<input type="hidden" name="flag" value="2">
-   	 			<form id="formEditDocument" action="" method="post" enctype="multipart/form-data">
-	   	 			<input type="hidden" name="id" value="${document.id }">
+   	 			<form id="formEditDocument" action="UpdateDocumentServlet" method="post" enctype="multipart/form-data">
+	   	 			<input style="display: none;" type="text" name="id" value="${document.id}">
 				  	<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
 	                        
 					    <tr>
@@ -84,16 +83,13 @@
 						</tr>
 						<tr><td class="main_tdbor"></td></tr>
 							
-	                      
-							
 						<tr>
 							<td class="font3 fftd">
 								<input type="button" id="btn" value="确定">
 								<input type="reset" value="重置">
 							</td>
 						</tr>
-						<tr><td class="main_tdbor"></td></tr>
-						
+						<tr><td class="main_tdbor"></td></tr>				
 	
 				  	</table>
    	 			</form>
