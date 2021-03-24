@@ -61,7 +61,7 @@ public class UserDao {
 	
 	/**
 	 * 查询得到的所有用户列表信息
-	 * @return
+	 * @return 查询得到顶得所有用户列表
 	 * @throws ClassNotFoundException 
 	 * @throws SQLException 
 	 */

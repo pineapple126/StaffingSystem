@@ -4,9 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.icss.StaffingSystem.dao.DocumentDao;
-import com.icss.StaffingSystem.dao.UserDao;
 import com.icss.StaffingSystem.entity.Document;
-import com.icss.StaffingSystem.entity.User;
 import com.icss.StaffingSystem.util.PageResult;
 
 /**
