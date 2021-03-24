@@ -166,8 +166,10 @@
 									</a>
 							  	</td>
 							  
-							  	<td align="center" width="40px;"><a href="#" id="down_7">
-									<img width="20" height="20" title="下载" src="../images/downLoad.png"></a>
+							  	<td align="center" width="40px;">
+							  		<a href="../DownloadServlet?filename=${document.filepath}" id="down_7">
+										<img width="20" height="20" title="下载" src="../images/downLoad.png">
+									</a>
 							  	</td>
 							</tr>
 						</c:forEach>
