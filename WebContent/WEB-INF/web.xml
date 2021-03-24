@@ -129,4 +129,14 @@
     <servlet-name>DownloadServlet</servlet-name>
     <url-pattern>/DownloadServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditDocumentServlet</display-name>
+    <servlet-name>EditDocumentServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.EditDocumentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditDocumentServlet</servlet-name>
+    <url-pattern>/document/EditDocumentServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

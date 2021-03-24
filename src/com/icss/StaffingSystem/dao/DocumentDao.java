@@ -175,4 +175,48 @@ public class DocumentDao {
 		conn.close();
 	}
 	
+	/**
+	 * 通过指定的文档编号查询文档信息
+	 * @param id 查找的文档编号
+	 * @return 查询得到的文档信息，或者 null
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public Document selectById(int id) throws ClassNotFoundException, SQLException {
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "select * from document_inf where id=?";		
+		
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setInt(1, id);
+		ResultSet rs = st.executeQuery();
+		
+		//5、如果是查询语句，则需要处理结果集 ResultSet
+		Document document = null;
+		if (rs.next()) {
+			document = new Document();
+			document.setId(rs.getInt("ID"));
+			document.setTitle(rs.getString("TITLE"));
+			document.setFilepath(rs.getString("FILEPATH"));
+			document.setRemark(rs.getString("REMARK"));
+			document.setCreatedate(rs.getTimestamp("CREATEDATE"));
+			document.setUserid(rs.getInt("USERID"));
+		}		
+		
+		//6、释放资源
+		rs.close();
+		st.close();
+		conn.close();
+		
+		return document;		
+		
+	}
+	
 }

@@ -161,7 +161,7 @@
 							  	<td>${document.remark}</td>
 							  	
 							 	<td align="center" width="40px;">
-							 		<a href="showUpdateDocument.html">
+							 		<a href="EditDocumentServlet?id=${document.id}">
 										<img title="修改" src="../images/update.gif">
 									</a>
 							  	</td>

@@ -58,4 +58,20 @@ public class DocumentService {
 		
 	}
 	
+	/**
+	 * 实现从数据库中通过指定的文档编号查找文档信息的业务逻辑
+	 * @param id 指定的文档编号编号
+	 * @return 查找到的文档信息
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public Document findById(int id) throws ClassNotFoundException, SQLException {
+		
+		DocumentDao documentDao = new DocumentDao();
+		
+		Document document = documentDao.selectById(id);
+	
+		return document;
+	}
+	
 }
