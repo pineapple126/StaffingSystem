@@ -23,7 +23,7 @@ public class DepService {
 		
 		DepDao depDao = new DepDao();
 		
-		List<Dep> depList = depDao.selectAllJobList();
+		List<Dep> depList = depDao.selectAllDepList();
 		
 		return depList;
 		

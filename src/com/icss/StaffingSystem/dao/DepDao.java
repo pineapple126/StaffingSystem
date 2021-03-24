@@ -23,7 +23,7 @@ public class DepDao {
 	 * @throws ClassNotFoundException 
 	 * @throws SQLException 
 	 */
-	public List<Dep> selectAllJobList() throws ClassNotFoundException, SQLException {
+	public List<Dep> selectAllDepList() throws ClassNotFoundException, SQLException {
 		//1¡¢¼ÓÔØJDBCÇý¶¯
 		Class.forName("com.mysql.jdbc.Driver");
 		

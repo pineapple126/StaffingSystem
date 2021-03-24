@@ -8,22 +8,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.icss.StaffingSystem.entity.Job;
+import com.icss.StaffingSystem.entity.Level;
 
 /**
- * 有关职位的数据库操作
+ * 有关薪资等级的数据库操作
  * @author pineapple126
  *
  */
-public class JobDao {
+public class LevelDao {
 
 	/**
-	 * 查询得到的所有职位列表信息
-	 * @return 查询得到的所有职位列表
+	 * 查询得到的所有薪资等级列表信息
+	 * @return 查询得到的所有薪资等级列表
 	 * @throws ClassNotFoundException 
 	 * @throws SQLException 
 	 */
-	public List<Job> selectAllJobList() throws ClassNotFoundException, SQLException {
+	public List<Level> selectAllLevelList() throws ClassNotFoundException, SQLException {
 		//1、加载JDBC驱动
 		Class.forName("com.mysql.jdbc.Driver");
 		
@@ -31,20 +31,21 @@ public class JobDao {
 		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
 		
 		//3、编写想要执行的sql语句
-		String sql = "select * from job_inf";		
+		String sql = "select * from level_inf";		
 		
 		//4、创建执行SQL语句的Statement对象
 		PreparedStatement st = conn.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 		
 		//5、如果是查询语句，则需要处理结果集 ResultSet
-		List<Job> jobList = new ArrayList<Job>();
+		List<Level> levelList = new ArrayList<Level>();
 		while (rs.next()) {
-			Job job = new Job();
-			job.setId(rs.getInt("ID"));
-			job.setName(rs.getString("NAME"));
-			job.setRemark(rs.getString("REMARK"));
-			jobList.add(job);
+			Level level = new Level();
+			level.setId(rs.getInt("ID"));
+			level.setRange(rs.getString("RANGE"));
+			level.setMinsalary(rs.getDouble("MINSALARY"));
+			level.setMaxsalary(rs.getDouble("MAXSALARY"));
+			levelList.add(level);
 		}		
 		
 		//6、释放资源
@@ -52,7 +53,7 @@ public class JobDao {
 		st.close();
 		conn.close();
 		
-		return jobList;
+		return levelList;
 	}
 	
 }

@@ -159,4 +159,24 @@
     <servlet-name>EmployeeListServlet</servlet-name>
     <url-pattern>/employee/EmployeeListServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddEmployeePrepareServlet</display-name>
+    <servlet-name>AddEmployeePrepareServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.AddEmployeePrepareServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEmployeePrepareServlet</servlet-name>
+    <url-pattern>/employee/AddEmployeePrepareServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddEmployeeServlet</display-name>
+    <servlet-name>AddEmployeeServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.AddEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEmployeeServlet</servlet-name>
+    <url-pattern>/employee/AddEmployeeServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

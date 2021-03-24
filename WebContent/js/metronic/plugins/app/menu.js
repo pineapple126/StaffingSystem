@@ -22,7 +22,7 @@ function loadMenu(){
 	+'"childs": []},{"id": "142","name": "添加职位","icon": "","url": "job/showAddJob.html","parentId": "14",'
 	+'"childs": []}]},{"id": "15","name": "员工管理","icon": "/xingxing.png","url": "employee/EmployeeListServlet","parentId": "1",'
 	+'"childs": [{"id": "151","name": "员工查询","icon": "","url": "employee/EmployeeListServlet","parentId": "15",'
-	+'"childs": []},{"id": "152","name": "添加员工","icon": "","url": "employee/showAddEmployee.html","parentId": "15",'
+	+'"childs": []},{"id": "152","name": "添加员工","icon": "","url": "employee/AddEmployeePrepareServlet","parentId": "15",'
 	+'"childs": []},{"id": "152","name": "员工统计","icon": "","url": "employee/showEmployeeStatistics.html","parentId": "15",'
 	+'"childs": []}]},{"id": "16","name": "公告管理","icon": "/xingxing.png","url": "notice/NoticeListServlet","parentId": "1",'
 	+'"childs": [{"id": "161","name": "公告查询","icon": "","url": "notice/NoticeListServlet","parentId": "16",'

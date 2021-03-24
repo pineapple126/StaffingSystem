@@ -46,4 +46,40 @@ public class EmployeeService {
 		return pageResult;
 	}
 	
+	/**
+	 * 实现添加一条指定员工信息的业务逻辑
+	 * @param name 修改的员工的姓名
+	 * @param cardid 修改的员工的身份证号码
+	 * @param sex 修改的员工的性别
+	 * @param jobid 修改的员工的所属的职位编号
+	 * @param education 修改的员工的学历
+	 * @param email 修改的员工的邮箱
+	 * @param phone 修改的员工的手机号码
+	 * @param tel 修改的员工的电话号码
+	 * @param party 修改的员工的政治面貌
+	 * @param qqnum 修改的员工的qq号码
+	 * @param address 修改的员工的联系地址
+	 * @param postcode 修改的员工的邮编
+	 * @param birthday 修改的员工的出生日期
+	 * @param race 修改的员工的民族
+	 * @param speciality 修改的员工的所学专业
+	 * @param hobby 修改的员工的爱好
+	 * @param remark 修改的员工的备注
+	 * @param depid 修改的员工的所属部门编号
+	 * @param levelid 修改的员工的所属薪资范围编号
+	 * @param salary 修改的员工的薪资
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public void addEmployee(String name,String cardid,String sex,int jobid,
+		String education,String email,String phone,String tel,String party,
+		String qqnum,String address,String postcode,String birthday,String race,
+		String speciality,String hobby,String remark,int depid,int levelid,double salary) throws ClassNotFoundException, SQLException {
+
+		EmployeeDao employeeDao = new EmployeeDao();
+		
+		employeeDao.insertEmployee(name, cardid, sex, jobid, education, email, phone, tel, party, qqnum, address, postcode, birthday, race, speciality, hobby, remark, depid, levelid, salary);
+		
+  	}
+	
 }
