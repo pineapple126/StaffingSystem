@@ -219,4 +219,14 @@
     <servlet-name>DeleteEmployeeServlet</servlet-name>
     <url-pattern>/employee/DeleteEmployeeServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FaceRegisterServlet</display-name>
+    <servlet-name>FaceRegisterServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.FaceRegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FaceRegisterServlet</servlet-name>
+    <url-pattern>/FaceRegisterServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -68,7 +68,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="menu-icons" title="人脸注册" data-search-open="" data-title="人脸注册" modal-toggle="modal" data-href="user/face.html" data-width="780" data-height="500">
+						<a class="menu-icons" title="人脸注册" data-search-open="" data-title="人脸注册" modal-toggle="modal" data-href="reg_face.jsp" data-width="780" data-height="500">
 							<em class="fa fa-gear main-op" style="font-size:13px">人脸注册</em>
 						</a>
 					</li>
