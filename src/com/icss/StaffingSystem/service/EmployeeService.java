@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.icss.StaffingSystem.dao.EmployeeDao;
 import com.icss.StaffingSystem.entity.Employee;
+import com.icss.StaffingSystem.util.LevelPercentage;
 import com.icss.StaffingSystem.util.PageResult;
 
 /**
@@ -133,6 +134,22 @@ public class EmployeeService {
 		EmployeeDao employeeDao = new EmployeeDao();
 		
 		employeeDao.updateEmployee(id, name, cardid, sex, jobid, education, email, phone, tel, party, qqnum, address, postcode, birthday, race, speciality, hobby, remark, depid, levelid, salary);
+		
+	}
+	
+	/**
+	 * 实现获取得到所有薪资等级所占百分比的业务逻辑
+	 * @return 所有薪资等级所占百分比的列表
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public List<LevelPercentage> findLevelPercentage() throws ClassNotFoundException, SQLException {
+		
+		EmployeeDao employeeDao = new EmployeeDao();
+		
+		List<LevelPercentage> list = employeeDao.selectLevelPercentage();
+		
+		return list;
 		
 	}
 	

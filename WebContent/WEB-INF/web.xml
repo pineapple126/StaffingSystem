@@ -199,4 +199,14 @@
     <servlet-name>UpdateEmployeeServlet</servlet-name>
     <url-pattern>/employee/UpdateEmployeeServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeStatisticsServlet</display-name>
+    <servlet-name>EmployeeStatisticsServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.EmployeeStatisticsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeStatisticsServlet</servlet-name>
+    <url-pattern>/employee/EmployeeStatisticsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

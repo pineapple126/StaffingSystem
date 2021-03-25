@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.icss.StaffingSystem.entity.Employee;
+import com.icss.StaffingSystem.util.LevelPercentage;
 
 /**
  * 员工相关的数据库操作
@@ -375,5 +376,47 @@ public class EmployeeDao {
 		st.close();
 		conn.close();
 		
+	}
+	
+	/**
+	 * 从数据库中统计查询出所有薪资等级所占百分比列表
+	 * @return
+	 * @throws ClassNotFoundException 
+	 * @throws SQLException 
+	 */
+	public List<LevelPercentage> selectLevelPercentage() throws ClassNotFoundException, SQLException {
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "select l.range,t.percentage from (select"
+				+ " levelid,round(count(*)/(select count(*) from employee_inf)*100,2)"
+				+ " percentage from employee_inf group by levelid) t,"
+				+ " level_inf l where t.levelid=l.id;";
+		
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		
+		//5、如果是查询语句，则需要处理结果集 ResultSet
+		List<LevelPercentage> list = new ArrayList<LevelPercentage>();
+		while (rs.next()) {
+			LevelPercentage levelPercentage = new LevelPercentage();
+			levelPercentage.setName(rs.getString("RANGE"));
+			levelPercentage.setY(rs.getDouble("PERCENTAGE"));
+			list.add(levelPercentage);
+		}		
+		
+		//6、释放资源
+		rs.close();
+		st.close();
+		conn.close();
+		
+		return list;
+				
 	}
 }
