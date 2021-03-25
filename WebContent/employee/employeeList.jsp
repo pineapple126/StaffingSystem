@@ -164,8 +164,10 @@
 							  	<td>${employee.address}</td>
 							  	<td>${employee.birthday}</td>
 						  
-							  	<td align="center" width="40px;"><a href="showUpdateEmployee.html">
-									<img title="修改" src="../images/update.gif"></a>
+							  	<td align="center" width="40px;">
+							  		<a href="EditEmployeeServlet?id=${employee.id}">
+										<img title="修改" src="../images/update.gif">
+									</a>
 							  	</td>
 							</tr>
 						</c:forEach>

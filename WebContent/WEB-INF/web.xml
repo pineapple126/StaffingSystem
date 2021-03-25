@@ -179,4 +179,14 @@
     <servlet-name>AddEmployeeServlet</servlet-name>
     <url-pattern>/employee/AddEmployeeServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditEmployeeServlet</display-name>
+    <servlet-name>EditEmployeeServlet</servlet-name>
+    <servlet-class>com.icss.StaffingSystem.servlet.EditEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditEmployeeServlet</servlet-name>
+    <url-pattern>/employee/EditEmployeeServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -82,4 +82,21 @@ public class EmployeeService {
 		
   	}
 	
+	/**
+	 * 实现获取得到指定员工编号的员工信息的业务逻辑
+	 * @param id 指定的员工编号
+	 * @return 查找到的员工信息
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public Employee findById(int id) throws ClassNotFoundException, SQLException {
+		
+		EmployeeDao employeeDao = new EmployeeDao();
+		
+		Employee employee = employeeDao.selectById(id);
+		
+		return employee;
+		
+	}
+	
 }

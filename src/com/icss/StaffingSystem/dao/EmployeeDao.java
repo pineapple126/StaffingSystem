@@ -240,4 +240,65 @@ public class EmployeeDao {
 		
   	}
 	
+	/**
+	 * 从数据库中查询得到指定员工编号的员工信息
+	 * @param id 指定的员工编号
+	 * @return 查询得到的员工信息
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public Employee selectById(int id) throws ClassNotFoundException, SQLException {
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "select e.*, j.name jobname, d.name depname from employee_inf e, job_inf j, dep_inf d where e.jobid=j.id and e.depid=d.id and e.id=?";
+
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setInt(1, id);
+		ResultSet rs = st.executeQuery();
+		
+		//5、如果是查询语句，则需要处理结果集 ResultSet
+		Employee employee = null;
+		while (rs.next()) {
+			employee = new Employee();
+			employee.setId(rs.getInt("ID"));
+			employee.setDepid(rs.getInt("DEPID"));
+			employee.setJobid(rs.getInt("JOBID"));
+			employee.setName(rs.getString("NAME"));
+			employee.setCardid(rs.getString("CARDID"));
+			employee.setAddress(rs.getString("ADDRESS"));
+			employee.setPostcode(rs.getString("POSTCODE"));
+			employee.setTel(rs.getString("TEL"));
+			employee.setPhone(rs.getString("PHONE"));
+			employee.setQqnum(rs.getString("QQNUM"));
+			employee.setEmail(rs.getString("EMAIL"));
+	      	employee.setSex(rs.getString("SEX"));
+	      	employee.setParty(rs.getString("PARTY"));
+			employee.setBirthday(rs.getString("BIRTHDAY"));
+			employee.setRace(rs.getString("RACE"));
+			employee.setEducation(rs.getString("EDUCATION"));
+			employee.setSpeciality(rs.getString("SPECIALITY"));
+			employee.setHobby(rs.getString("HOBBY"));
+			employee.setRemark(rs.getString("REMARK"));
+	      	employee.setCreatedate(rs.getTimestamp("CREATEDATE"));
+	      	employee.setLevelid(rs.getInt("LEVELID"));
+	      	employee.setSalary(rs.getDouble("SALARY"));
+	      	employee.setJobname(rs.getString("JOBNAME"));
+	      	employee.setDepname(rs.getString("DEPNAME"));
+		}		
+		
+		//6、释放资源
+		rs.close();
+		st.close();
+		conn.close();
+		
+		return employee;
+	}
+	
 }
