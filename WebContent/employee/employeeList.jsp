@@ -58,7 +58,7 @@
     				   	if(r){
     					   	// alert("删除："+ids.get());
     					   	// 发送请求
-    					   	//window.location = "${ctx }/employee/removeEmployee?ids=" + ids.get();
+    					   	window.location = "DeleteEmployeeServlet?ids=" + ids.get();
     				   	}
     			   	});
     		   	}
@@ -149,7 +149,7 @@
 			
 						<c:forEach items="${pageResult.list}" var="employee">
 							<tr id="data_0" class="main_trbg" align="center" style="background-color: rgb(255, 255, 255);">
-								<td><input type="checkbox" id="box_0" value="1"></td>
+								<td><input type="checkbox" id="box_0" value="${employee.id}"></td>
 						 		<td>${employee.name}</td>
 					  			<td>
 					  				<c:if test="${employee.sex == '1'}">男</c:if>

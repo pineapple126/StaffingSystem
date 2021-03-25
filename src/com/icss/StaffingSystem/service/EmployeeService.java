@@ -153,4 +153,18 @@ public class EmployeeService {
 		
 	}
 	
+	/**
+	 * 实现删除多条指定员工编号的员工信息的业务逻辑
+	 * @param ids 指定的员工编号
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public void deleteEmployees(String ids) throws ClassNotFoundException, SQLException {
+		
+		// 3.从数据库里删除多条指定编号的用户信息
+		EmployeeDao employeeDao = new EmployeeDao();		
+		employeeDao.deleteEmployees(ids);
+		
+	}
+	
 }
