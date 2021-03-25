@@ -168,7 +168,7 @@ public class EmployeeDao {
 	}
 	
 	/**
-	 * 实现添加一条指定员工信息的业务逻辑
+	 * 实现添加一条指定员工信息的数据库操作
 	 * @param name 修改的员工的姓名
 	 * @param cardid 修改的员工的身份证号码
 	 * @param sex 修改的员工的性别
@@ -301,4 +301,79 @@ public class EmployeeDao {
 		return employee;
 	}
 	
+	
+	/**
+	 * 实现修改指定员工编号的员工信息的数据库操作
+	 * @param id 指定要修改的员工编号
+	 * @param name 修改的员工的姓名
+	 * @param cardid 修改的员工的身份证号码
+	 * @param sex 修改的员工的性别
+	 * @param jobid 修改的员工的所属的职位编号
+	 * @param education 修改的员工的学历
+	 * @param email 修改的员工的邮箱
+	 * @param phone 修改的员工的手机号码
+	 * @param tel 修改的员工的电话号码
+	 * @param party 修改的员工的政治面貌
+	 * @param qqnum 修改的员工的qq号码
+	 * @param address 修改的员工的联系地址
+	 * @param postcode 修改的员工的邮编
+	 * @param birthday 修改的员工的出生日期
+	 * @param race 修改的员工的民族
+	 * @param speciality 修改的员工的所学专业
+	 * @param hobby 修改的员工的爱好
+	 * @param remark 修改的员工的备注
+	 * @param depid 修改的员工的所属部门编号
+	 * @param levelid 修改的员工的所属薪资范围编号
+	 * @param salary 修改的员工的薪资
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public void updateEmployee(int id,String name,String cardid,String sex,int jobid,
+		String education,String email,String phone,String tel,String party,
+		String qqnum,String address,String postcode,String birthday,String race,
+		String speciality,String hobby,String remark,int depid,int levelid,double salary) throws ClassNotFoundException, SQLException{
+		
+		//1、加载JDBC驱动
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//2、建立数据库连接
+		Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_staffingsystem","root","root");
+		
+		//3、编写想要执行的sql语句
+		String sql = "update employee_inf set depid=?,jobid=?,name=?,cardid=?,address=?,"
+		        + "postcode=?,tel=?,phone=?,qqnum=?,email=?,sex=?,party=?,birthday=?,"
+		        + "race=?,education=?,speciality=?,hobby=?,remark=?,levelid=?,salary=?"
+		        + " where id=?";
+
+		//4、创建执行SQL语句的Statement对象
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setInt(1, depid);
+	    st.setInt(2, jobid);
+	    st.setString(3, name);
+	    st.setString(4, cardid);
+	    st.setString(5, address);
+	    st.setString(6, postcode);
+	    st.setString(7, tel);
+	    st.setString(8, phone);
+	    st.setString(9, qqnum);
+	    st.setString(10, email);
+	    st.setString(11, sex);
+	    st.setString(12, party);
+	    st.setString(13, birthday);
+	    st.setString(14, race);
+	    st.setString(15, education);
+	    st.setString(16, speciality);
+	    st.setString(17, hobby);
+	    st.setString(18, remark);
+	    st.setInt(19, levelid);
+	    st.setDouble(20, salary);
+	    st.setInt(21, id);
+		st.execute();
+		
+		
+		//6、释放资源
+		st.close();
+		conn.close();
+		
+	}
 }

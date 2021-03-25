@@ -23,14 +23,13 @@
 	<link href="../css/pager.css" type="text/css" rel="stylesheet">
 	<script language="javascript" type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><link href="../js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript">
-		function submit(){
+		function submitEditEmployee(){
 			// 控制文档加载完成以后 选中性别 
-			$("#sex").val("0");
-			$("#job_id").val("8");
+			//$("#sex").val("0");
+			//$("#job_id").val("8");
 			
 	    	/** 员工表单提交 */
 			//$("#employeeForm").submit(function(){
-				alert(1);
 				var name = $("#name");
 				var cardId = $("#cardId");
 				var education = $("#education");
@@ -114,10 +113,8 @@
 				if (msg != ""){
 					$.ligerDialog.error(msg);
 					return false;
-				}else{
-					return true;
 				}
-				//$("#employeeForm").submit();
+				$("#employeeForm").submit();
 			//});
 	    }
 </script>
@@ -139,150 +136,147 @@
   		<tbody>
   			<tr valign="top">
     			<td>
-    	
-					<!-- 隐藏表单，flag表示添加标记 -->
-    	 			<input type="hidden" name="flag" value="2">
-					<input type="hidden" name="id" value="1">
 		  			<table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
   						<tbody>
   							<tr valign="top">
     							<td>
     	
 									<!-- 隐藏表单，flag表示添加标记 -->
-						    	 	<input type="hidden" name="flag" value="2">
-									<input type="hidden" name="id" value="1">
-		  							<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
-			    						<tbody>
-			    							<tr>
-			    								<td class="font3 fftd">
-			    									<table>
-			    										<tbody>
-			    											<tr>
-			    												<td class="font3 fftd">
-			    													姓名：<input type="text" name="name" id="name" size="20" value="${employee.name}">
-		    													</td>
-		    													<td class="font3 fftd">
-		    														身份证号码：<input type="text" name="cardId" id="cardId" size="20" value="${employee.cardid}">
-	    														</td>
-			    											</tr>
-		    												<tr>
-		    													<td class="font3 fftd">
-		    														性别：
-																	<select id="sex" name="sex" style="width:143px;">
-																		<option <c:if test="${employee.sex == '1'}">selected</c:if> value="1">男</option>
-																		<option <c:if test="${employee.sex == '2'}">selected</c:if> value="2">女</option>
-						    										</select>
-						    									</td>
-			    												<td class="font3 fftd">
-			    													职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
-			    			 										<select id="job_id" name="job_id" style="width:143px;">
-						    											<c:forEach items="${jobs}" var="job">
-						    												<option <c:if test="${job.id==employee.jobid}">selected</c:if> value="${job.id}">${job.name}</option>
-						    											</c:forEach>
-						    										</select>
-					    										</td>
-		    												</tr>
-			    											<tr>
-			    												<td class="font3 fftd">
-			    													学历：<input name="education" id="education" size="20" value="${employe.education}">
-		    													</td>
-			    												<td class="font3 fftd">
-			    													邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input name="email" id="email" size="20" value="${employee.email}">
-		    													</td>
-			    											</tr>
-												    		<tr>
-												    			<td class="font3 fftd">
-												    				手机：<input name="phone" id="phone" size="20" value="${employee.phone}">
-											    				</td>
-												    			<td class="font3 fftd">
-											    					电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：<input name="tel" id="tel" size="20" value="${employee.tel}">
-										    					</td>
-												    		</tr>
-			    		
-			    										</tbody>
-		    										</table>
-			    								</td>
-		    								</tr>
-											<tr>
-												<td class="main_tdbor"></td>
-											</tr>
-				
-											<tr>
-												<td class="font3 fftd">
-													政治面貌：<input name="party" id="party" size="40" value="${employee.party}">&nbsp;&nbsp;
-													QQ&nbsp;&nbsp;号码：<input name="qqNum" id="qqNum" size="20" value="${employee.qqnum }">
-												</td>
-											</tr>
-											<tr>
-												<td class="main_tdbor"></td>
-											</tr>
-				
-											<tr>
-												<td class="font3 fftd">
-													联系地址：<input name="address" id="address" size="40" value="${employee.address}">&nbsp;&nbsp;
-													邮政编码：<input name="postCode" id="postCode" size="20" value="${employee.postcode }">
-												</td>
-											</tr>
-											<tr>
-												<td class="main_tdbor"></td>
-											</tr>
-				
-											<tr>
-												<td class="font3 fftd">
-													出生日期：<input cssclass="Wdate" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd'});" name="birthday" id="birthday" size="40" value="${employee.birthday}">&nbsp;&nbsp;
-													民&nbsp;&nbsp;&nbsp;&nbsp;族：<input name="race" id="race" size="20" value="${employee.race }">
-												</td>
-											</tr>
-											<tr>
-												<td class="main_tdbor"></td>
-											</tr>
-				
-											<tr>
-												<td class="font3 fftd">
-													所学专业：<input name="speciality" id="speciality" size="40" value="${employee.speciality}">&nbsp;&nbsp;
-													爱&nbsp;&nbsp;&nbsp;&nbsp;好：<input name="hobby" id="hobby" size="20" value="${employee.hobby}">
-												</td>
-											</tr>
-											<tr>
-												<td class="main_tdbor"></td>
-											</tr>
-				
-											<tr>
-												<td class="font3 fftd">
-													备&nbsp;&nbsp;&nbsp;&nbsp;注：<input name="remark" id="remark" size="40" value="${employee.remark}">
-													&nbsp;&nbsp;所属部门：
-													<select name="dept_id" style="width:100px;">
-														<c:forEach items="${requestScope.depts }" var="dept">
-						    								<option <c:if test="${dept.id==employee.depid}">selected</c:if> value="${dept.id}">${dept.name}</option>
-						    							</c:forEach>
-													</select>
-													
-												</td>
-											</tr>
-											<tr>
-												<td class="font3 fftd">
-													所属薪资范围：
-													<select name="levelid" style="width:300px;">
-														<c:forEach items="${levels}" var="level">
-															<option <c:if test="${level.id==employee.levelid}">selected</c:if> value="${level.id}">${level.range}</option>
-														</c:forEach>					   			
-													</select>
-													&nbsp;&nbsp;薪&nbsp;&nbsp;&nbsp;&nbsp;资：<input name="salary" value="3500" id="salary" size="20">
-												</td>
-											</tr>
-	
-											<tr>
-												<td class="main_tdbor"></td>
-											</tr>
-				
-											<tr>
-												<td align="left" class="fftd"><input type="button"  onclick="submit()" value="修改">
-													&nbsp;&nbsp;<input type="reset" value="取消 ">
-												</td>
-											</tr>
-			  							</tbody>
-		  							</table>
+									<form id="employeeForm" action="UpdateEmployeeServlet" method="post">
+										<input style="display: none;" type="text" name="id" value="${employee.id}" />
+			  							<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
+				    						<tbody>
+				    							<tr>
+				    								<td class="font3 fftd">
+				    									<table>
+				    										<tbody>
+				    											<tr>
+				    												<td class="font3 fftd">
+				    													姓名：<input type="text" name="name" id="name" size="20" value="${employee.name}">
+			    													</td>
+			    													<td class="font3 fftd">
+			    														身份证号码：<input type="text" name="cardId" id="cardId" size="20" value="${employee.cardid}">
+		    														</td>
+				    											</tr>
+			    												<tr>
+			    													<td class="font3 fftd">
+			    														性别：
+																		<select id="sex" name="sex" style="width:143px;">
+																			<option <c:if test="${employee.sex=='1'}">selected</c:if> value="1">男</option>
+																			<option <c:if test="${employee.sex=='2'}">selected</c:if> value="2">女</option>
+							    										</select>
+							    									</td>
+				    												<td class="font3 fftd">
+				    													职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
+				    			 										<select id="job_id" name="job_id" style="width:143px;">
+							    											<c:forEach items="${jobs}" var="job">
+							    												<option <c:if test="${job.id==employee.jobid}">selected</c:if> value="${job.id}">${job.name}</option>
+							    											</c:forEach>
+							    										</select>
+						    										</td>
+			    												</tr>
+				    											<tr>
+				    												<td class="font3 fftd">
+				    													学历：<input name="education" id="education" size="20" value="${employee.education}">
+			    													</td>
+				    												<td class="font3 fftd">
+				    													邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input name="email" id="email" size="20" value="${employee.email}">
+			    													</td>
+				    											</tr>
+													    		<tr>
+													    			<td class="font3 fftd">
+													    				手机：<input name="phone" id="phone" size="20" value="${employee.phone}">
+												    				</td>
+													    			<td class="font3 fftd">
+												    					电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：<input name="tel" id="tel" size="20" value="${employee.tel}">
+											    					</td>
+													    		</tr>
+				    		
+				    										</tbody>
+			    										</table>
+				    								</td>
+			    								</tr>
+												<tr>
+													<td class="main_tdbor"></td>
+												</tr>
+					
+												<tr>
+													<td class="font3 fftd">
+														政治面貌：<input name="party" id="party" size="40" value="${employee.party}">&nbsp;&nbsp;
+														QQ&nbsp;&nbsp;号码：<input name="qqNum" id="qqNum" size="20" value="${employee.qqnum }">
+													</td>
+												</tr>
+												<tr>
+													<td class="main_tdbor"></td>
+												</tr>
+					
+												<tr>
+													<td class="font3 fftd">
+														联系地址：<input name="address" id="address" size="40" value="${employee.address}">&nbsp;&nbsp;
+														邮政编码：<input name="postCode" id="postCode" size="20" value="${employee.postcode }">
+													</td>
+												</tr>
+												<tr>
+													<td class="main_tdbor"></td>
+												</tr>
+					
+												<tr>
+													<td class="font3 fftd">
+														出生日期：<input cssclass="Wdate" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd'});" name="birthday" id="birthday" size="40" value="${employee.birthday}">&nbsp;&nbsp;
+														民&nbsp;&nbsp;&nbsp;&nbsp;族：<input name="race" id="race" size="20" value="${employee.race }">
+													</td>
+												</tr>
+												<tr>
+													<td class="main_tdbor"></td>
+												</tr>
+					
+												<tr>
+													<td class="font3 fftd">
+														所学专业：<input name="speciality" id="speciality" size="40" value="${employee.speciality}">&nbsp;&nbsp;
+														爱&nbsp;&nbsp;&nbsp;&nbsp;好：<input name="hobby" id="hobby" size="20" value="${employee.hobby}">
+													</td>
+												</tr>
+												<tr>
+													<td class="main_tdbor"></td>
+												</tr>
+					
+												<tr>
+													<td class="font3 fftd">
+														备&nbsp;&nbsp;&nbsp;&nbsp;注：<input name="remark" id="remark" size="40" value="${employee.remark}">
+														&nbsp;&nbsp;所属部门：
+														<select name="dept_id" style="width:100px;">
+															<c:forEach items="${requestScope.depts }" var="dept">
+							    								<option <c:if test="${dept.id==employee.depid}">selected</c:if> value="${dept.id}">${dept.name}</option>
+							    							</c:forEach>
+														</select>
+														
+													</td>
+												</tr>
+												<tr>
+													<td class="font3 fftd">
+														所属薪资范围：
+														<select name="levelid" style="width:300px;">
+															<c:forEach items="${levels}" var="level">
+																<option <c:if test="${level.id==employee.levelid}">selected</c:if> value="${level.id}">${level.range}</option>
+															</c:forEach>					   			
+														</select>
+														&nbsp;&nbsp;薪&nbsp;&nbsp;&nbsp;&nbsp;资：<input name="salary" value="${employee.salary}" id="salary" size="20">
+													</td>
+												</tr>
 		
+												<tr>
+													<td class="main_tdbor"></td>
+												</tr>
+					
+												<tr>
+													<td align="left" class="fftd">
+														<input type="button"  onclick="submitEditEmployee()" value="修改">
+														&nbsp;&nbsp;<input type="reset" value="取消 ">
+													</td>
+												</tr>
+				  							</tbody>
+			  							</table>
+									</form>
 								</td>
 	  						</tr>
 						</tbody>
